@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const userRoutes = require('./routes/users');
+const productRoutes = require('./routes/product');
 
 mongoose.connect("mongodb+srv://admin-rishi:m0ng00se@cluster0-rtpri.mongodb.net/tsec",{
   useUnifiedTopology: true,
@@ -29,6 +30,7 @@ app.use((req,res,next)=>{
 })
 
 app.use('/users', userRoutes);
+app.use('/products', productRoutes);
 
 app.use((req,res,next)=>{
   const error = new Error("Not Found...");
