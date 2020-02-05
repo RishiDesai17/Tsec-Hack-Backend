@@ -17,7 +17,8 @@ const userSchema = mongoose.Schema({
     phno:{
         type: Number,
         required: true
-    }
+    },
+    cart: []
 });
 
 module.exports = mongoose.model('User', userSchema);

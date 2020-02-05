@@ -117,3 +117,17 @@ exports.users_delete_user = (req,res,next)=>{
         })
     })
 }
+
+exports.update = (req,res,next)=>{
+    const id = req.params.userId;
+    User.update({_id: id}, {$set: req.body}).exec().then(result=>{
+        res.status(200).json({
+            message: 'Updated',
+        })
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).json({
+            error: err
+        })
+    })
+}
