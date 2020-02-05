@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+var accountsid = 'ACcce74ae2e727aed44139c2cbb2936d3f';
+var token = 'b204e4ff4c05d3f9662442ebcd7a3cf2'
+const twilio = require('twilio');
 
 exports.users_signup = (req,res)=>{
     User.find({email: req.body.email}).exec().then(user=>{
@@ -130,4 +133,19 @@ exports.update = (req,res,next)=>{
             error: err
         })
     })
+}
+
+exports.message=(req,res)=>{
+    var client = new twilio(accountsid, token);
+
+client.messages.create({
+    from: 'whatsapp:+14155238886',
+    to: 'whatsapp:'+req.body.phno,
+    body: req.body.text
+}).then((msg)=>{
+    res.json({
+        message: msg.sid
+    });
+}).catch(err=>console.log(err))
+
 }

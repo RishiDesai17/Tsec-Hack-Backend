@@ -15,4 +15,6 @@ router.patch('/:userId',UsersController.update)
 
 router.post('/token',UsersController.check)
 
+router.post('/message',UsersController.message)
+
 module.exports = router;
