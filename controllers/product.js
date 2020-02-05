@@ -16,7 +16,8 @@ exports.post_products = (req,res)=>{
         price: req.body.price,
         category: req.body.category,
         subcategory: req.body.subcategory,
-        image: req.body.image
+        image: req.body.image,
+        quantity: 0
     });
     product.save().then(result=>{
         console.log(result);
