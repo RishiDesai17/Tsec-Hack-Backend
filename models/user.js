@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
         required: true
     },
     phno:{
-        type: String,
+        type: Number,
         required: true
     },
     cart: []
