@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Purchase = require('../models/purchase');
 
-exports.get_products = (req,res)=>{
+exports.get_purchases = (req,res)=>{
     Purchase.find().exec().then((result)=>{
         res.json({
             docs: result
@@ -9,8 +9,8 @@ exports.get_products = (req,res)=>{
     })
 }
 
-exports.post_products = (req,res)=>{
-    const product = new Purchase({
+exports.post_purchase = (req,res)=>{
+    const purchase = new Purchase({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         price: req.body.price,
@@ -18,7 +18,7 @@ exports.post_products = (req,res)=>{
         items: req.body.items,
         userId: req.params.userId
     });
-    product.save().then(result=>{
+    purchase.save().then(result=>{
         console.log(result);
         res.status(201).json({
             message: "purchase added",
