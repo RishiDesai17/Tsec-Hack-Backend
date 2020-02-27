@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-var accountsid = 'ACcce74ae2e727aed44139c2cbb2936d3f';
-var token = 'b204e4ff4c05d3f9662442ebcd7a3cf2'
+var accountsid = //YOUR ACCOUNT KEY;
+var token = //YOUR ACCOUNT TOKEN;
 const twilio = require('twilio');
 
 exports.users_signup = (req,res)=>{
